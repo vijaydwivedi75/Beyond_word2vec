@@ -1,34 +1,36 @@
-# ---------------------------------------------------------	#
-# Following commented code is to prepare 'data_pair_neg 	#
-#---------------------------------------------------------- #
+# # ---------------------------------------------------------	#
+# # Following commented code is to prepare 'data_pair_neg 	#
+# #---------------------------------------------------------- #
 
-# lines = [line.strip('\n') for line in open('data_pair_pos')]
+# # lines = [line.strip('\n') for line in open('data_pair_pos')]
 
-# left_list = []
-# right_list = []
+# # left_list = []
+# # right_list = []
 
-# for line in lines:
-# 	left_right = line.split(' -- ')
-# 	left_list.append(left_right[0][1:])
-# 	right_list.append(left_right[1][:-1])
+# # for line in lines:
+# # 	left_right = line.split(' -- ')
+# # 	left_list.append(left_right[0][1:])
+# # 	right_list.append(left_right[1][:-1])
 	
-# right_list.reverse()
-# zipped_data_pair_neg = zip(left_list, right_list)
+# # right_list.reverse()
+# # zipped_data_pair_neg = zip(left_list, right_list)
 
-# data_pair_neg = list(zipped_data_pair_neg)
+# # data_pair_neg = list(zipped_data_pair_neg)
 
-# print(data_pair_neg[1512])
+# # print(data_pair_neg[1512])
 
-# with open('data_pair_neg', 'w+') as f:
-# 	for a, b in data_pair_neg:
-# 		f.write(' '+a+' -- '+b+' \n')
+# # with open('data_pair_neg', 'w+') as f:
+# # 	for a, b in data_pair_neg:
+# # 		f.write(' '+a+' -- '+b+' \n')
 
 # --------------------------------------------------------- #
 import collections
 import numpy as np
 import os
+from nltk import word_tokenize
 
 lines = [line.strip('\n') for line in open('data_pair_pos')]
+lines1 = [line.strip('\n') for line in open('STS.input.track5.en-en.txt')]
 
 left_list = []
 right_list = []
@@ -39,6 +41,13 @@ for line in lines:
 	right_list.append(left_right[1][:-1])
 
 wordlist = []
+
+for line in lines1:
+	sent = line.split('\t')
+	for word in word_tokenize(sent[0]):
+		wordlist.append(word)
+	for word in word_tokenize(sent[1]):
+		wordlist.append(word)
 
 for item in left_list:
 	tempList = item.split()
@@ -74,7 +83,7 @@ f.close()
 print('Found %s word vectors.' % len(embeddings_index))
 # --------------------------------------------------- #
 
-vocabulary_size = 32137
+vocabulary_size = len(uniqueWords)
 
 def vocab_size():
 	return vocabulary_size
@@ -139,95 +148,98 @@ right_neg_list = temp
 train_pairs = []
 visualise_pairs = []
 
-num_data = 18800		
+num_data = 300000		
 # data split 
 # 1462803 x 2 = 2925606 total samples
 # Test: 25% = 731400
 # Train: 75% = 2194206
-for i in range(num_data):
-	train_item = []
-	train_item_inside = []
-	train_item_inside_vectored = []
-	for word in left_list[i].split(' '):
-		train_item_inside.append(word_to_dict(word))
-	while len(train_item_inside) < 5:
-		train_item_inside.append(0)
-	if(len(train_item_inside) >= 5):
-		train_item_inside = list(train_item_inside[:5])
-	for word_map in train_item_inside:
-		train_item_inside_vectored.append(list(word_to_vec(word_map)))
-	train_item.append(train_item_inside_vectored)
+def dataset():
+	for i in range(num_data):
+		train_item = []
+		train_item_inside = []
+		train_item_inside_vectored = []
+		for word in left_list[i].split(' '):
+			train_item_inside.append(word_to_dict(word))
+		while len(train_item_inside) < 5:
+			train_item_inside.append(0)
+		if(len(train_item_inside) >= 5):
+			train_item_inside = list(train_item_inside[:5])
+		for word_map in train_item_inside:
+			train_item_inside_vectored.append(list(word_to_vec(word_map)))
+		train_item.append(train_item_inside_vectored)
 
-	train_item_inside = []
-	train_item_inside_vectored = []
-	for word in right_list[i].split(' '):
-		train_item_inside.append(word_to_dict(word))
-	while len(train_item_inside) < 5:
-		train_item_inside.append(0)
-	if(len(train_item_inside) >= 5):
-		train_item_inside = list(train_item_inside[:5])
-	for word_map in train_item_inside:
-		train_item_inside_vectored.append(list(word_to_vec(word_map)))
-	train_item.append(train_item_inside_vectored)
-	train_pairs.append(train_item)
+		train_item_inside = []
+		train_item_inside_vectored = []
+		for word in right_list[i].split(' '):
+			train_item_inside.append(word_to_dict(word))
+		while len(train_item_inside) < 5:
+			train_item_inside.append(0)
+		if(len(train_item_inside) >= 5):
+			train_item_inside = list(train_item_inside[:5])
+		for word_map in train_item_inside:
+			train_item_inside_vectored.append(list(word_to_vec(word_map)))
+		train_item.append(train_item_inside_vectored)
+		train_pairs.append(train_item)
 
-	train_item = []
-	train_item_inside = []
-	train_item_inside_vectored = []
-	for word in left_list[i].split(' '):
-		train_item_inside.append(word_to_dict(word))
-	while len(train_item_inside) < 5:
-		train_item_inside.append(0)
-	if(len(train_item_inside) >= 5):
-		train_item_inside = list(train_item_inside[:5])
-	for word_map in train_item_inside:
-		train_item_inside_vectored.append(list(word_to_vec(word_map)))
-	train_item.append(train_item_inside_vectored)
+		train_item = []
+		train_item_inside = []
+		train_item_inside_vectored = []
+		for word in left_list[i].split(' '):
+			train_item_inside.append(word_to_dict(word))
+		while len(train_item_inside) < 5:
+			train_item_inside.append(0)
+		if(len(train_item_inside) >= 5):
+			train_item_inside = list(train_item_inside[:5])
+		for word_map in train_item_inside:
+			train_item_inside_vectored.append(list(word_to_vec(word_map)))
+		train_item.append(train_item_inside_vectored)
 
-	train_item_inside = []
-	train_item_inside_vectored = []
-	for word in right_neg_list[i].split(' '):
-		train_item_inside.append(word_to_dict(word))
-	while len(train_item_inside) < 5:
-		train_item_inside.append(0)
-	if(len(train_item_inside) >= 5):
-		train_item_inside = list(train_item_inside[:5])
-	for word_map in train_item_inside:
-		train_item_inside_vectored.append(list(word_to_vec(word_map)))
-	train_item.append(train_item_inside_vectored)
-	train_pairs.append(train_item)
+		train_item_inside = []
+		train_item_inside_vectored = []
+		for word in right_neg_list[i].split(' '):
+			train_item_inside.append(word_to_dict(word))
+		while len(train_item_inside) < 5:
+			train_item_inside.append(0)
+		if(len(train_item_inside) >= 5):
+			train_item_inside = list(train_item_inside[:5])
+		for word_map in train_item_inside:
+			train_item_inside_vectored.append(list(word_to_vec(word_map)))
+		train_item.append(train_item_inside_vectored)
+		train_pairs.append(train_item)
 
-	# for preparing data used for visualising embeddings
-	data_item = []
-	data_item_inside = []
-	data_item_inside_vectored = []
-	for word in left_list[i].split(' '):
-		data_item_inside.append(word_to_dict(word))
-	while len(data_item_inside) < 5:
-		data_item_inside.append(0)
-	if(len(data_item_inside) >= 5):
-		data_item_inside = list(data_item_inside[:5])
-	for word_map in data_item_inside:
-		data_item_inside_vectored.append(list(word_to_vec(word_map)))
-	data_item.append(data_item_inside_vectored)
+		# for preparing data used for visualising embeddings
+		data_item = []
+		data_item_inside = []
+		data_item_inside_vectored = []
+		for word in left_list[i].split(' '):
+			data_item_inside.append(word_to_dict(word))
+		while len(data_item_inside) < 5:
+			data_item_inside.append(0)
+		if(len(data_item_inside) >= 5):
+			data_item_inside = list(data_item_inside[:5])
+		for word_map in data_item_inside:
+			data_item_inside_vectored.append(list(word_to_vec(word_map)))
+		data_item.append(data_item_inside_vectored)
 
-	data_item_inside = []
-	data_item_inside_vectored = []
-	for word in right_list[i].split(' '):
-		data_item_inside.append(word_to_dict(word))
-	while len(data_item_inside) < 5:
-		data_item_inside.append(0)
-	if(len(data_item_inside) >= 5):
-		data_item_inside = list(data_item_inside[:5])
-	for word_map in data_item_inside:
-		data_item_inside_vectored.append(list(word_to_vec(word_map)))
-	data_item.append(data_item_inside_vectored)
-	visualise_pairs.append(data_item)
+		data_item_inside = []
+		data_item_inside_vectored = []
+		for word in right_list[i].split(' '):
+			data_item_inside.append(word_to_dict(word))
+		while len(data_item_inside) < 5:
+			data_item_inside.append(0)
+		if(len(data_item_inside) >= 5):
+			data_item_inside = list(data_item_inside[:5])
+		for word_map in data_item_inside:
+			data_item_inside_vectored.append(list(word_to_vec(word_map)))
+		data_item.append(data_item_inside_vectored)
+		visualise_pairs.append(data_item)
 
-train_y = []
-for i in range(num_data):
-	train_y.append(0)
-	train_y.append(1)
+	train_y = []
+	for i in range(num_data):
+		train_y.append(0)
+		train_y.append(1)
+
+	return np.array(train_pairs), np.array(train_y), np.array(visualise_pairs)
 
 # Utility code to check max and count of words in a phrase
 # max = 0
@@ -242,9 +254,6 @@ for i in range(num_data):
 # # print(cnt)
 
 # print(len(train_pairs[5][1]))
-
-def dataset():
-	return np.array(train_pairs), np.array(train_y), np.array(visualise_pairs)
 # train_pairs, train_y, visualise_pairs = dataset()
 
 def getWords():
@@ -252,3 +261,46 @@ def getWords():
 
 def get_pp():
 	return right_list
+
+def getSemEval():
+	# lines = [line.strip('\n') for line in open('../STS2017.eval.v1.1/STS.input.track5.en-en.txt')]
+	sts_pairs = []
+
+	maxx = 0
+	left_sent = []
+	right_sent = []
+	for sentence in lines1:
+		sent = sentence.split('\t')
+		left_sent.append(sent[0])
+		right_sent.append(sent[1])
+
+	for i in range(250):
+		data_item = []
+		data_item_inside = []
+		data_item_inside_vectored = []
+		for word in word_tokenize(left_sent[i]):
+			data_item_inside.append(word_to_dict(word))
+		while len(data_item_inside) < 19:
+			data_item_inside.append(0)
+		if(len(data_item_inside) >= 19):
+			data_item_inside = list(data_item_inside[:19])
+		for word_map in data_item_inside:
+			data_item_inside_vectored.append(list(word_to_vec(word_map)))
+		data_item.append(data_item_inside_vectored)
+
+		data_item_inside = []
+		data_item_inside_vectored = []
+		for word in word_tokenize(right_sent[i]):
+			data_item_inside.append(word_to_dict(word))
+		while len(data_item_inside) < 19:
+			data_item_inside.append(0)
+		if(len(data_item_inside) >= 19):
+			data_item_inside = list(data_item_inside[:19])
+		for word_map in data_item_inside:
+			data_item_inside_vectored.append(list(word_to_vec(word_map)))
+		data_item.append(data_item_inside_vectored)
+		sts_pairs.append(data_item)
+
+	return np.array(sts_pairs)
+
+# print(getSemEval().shape)

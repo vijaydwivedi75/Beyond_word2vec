@@ -1,0 +1,298 @@
+=================================================================
+Layer (type)                 Output Shape              Param #   
+=================================================================
+lstm_1 (LSTM)                (None, 32)                29824     
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 32)                0         
+=================================================================
+Total params: 29,824
+Trainable params: 29,824
+
+====================================================================================================
+Layer (type)                     Output Shape          Param #     Connected to                     
+====================================================================================================
+input_1 (InputLayer)             (None, 5, 200)        0                                            
+____________________________________________________________________________________________________
+input_2 (InputLayer)             (None, 5, 200)        0                                            
+____________________________________________________________________________________________________
+sequential_1 (Sequential)        (None, 32)            29824       input_1[0][0]                    
+                                                                   input_2[0][0]                    
+____________________________________________________________________________________________________
+lambda_1 (Lambda)                (None, 1)             0           sequential_1[1][0]               
+                                                                   sequential_1[2][0]               
+====================================================================================================
+Total params: 29,824
+Trainable params: 29,824
+Non-trainable params: 0
+____________________________________________________________________________________________________
+None
+* Accuracy on training set: 90.04%
+* Accuracy on test set: 71.19%
+
+Nearest to 'stakeholders': the internationalisation, 4.20 consequently, more proud, the bet, the cfdc, the wcb, are that-, more courageous,
+
+Nearest to 'frontex': nation states, cyber crime, is reset, qin gang, is proposing, softwood lumber, legitimate self-defence, the hell,
+
+Nearest to '2000': in fact, year 2000, in person, mr law, 1997 to 2000, 2000 to 2004, 2000 to 2005, first ministers,
+
+Nearest to 'well-guarded': thank you, thank you, thank you, thank you, very flattered, more proud, are that-, <> </>,
+
+Nearest to '11:45': so testy, more courageous, more proud, shi 'ites, a number, an itc, cheung sha, news report,
+
+Nearest to 'itsd': al-baradi 'ey, are that-, al-qa 'idah, the wcb, the cfdc, 're blushing, 're blushing, fla .,
+
+Nearest to 'therapeutics': al-qa 'idah, al-baradi 'ey, <> </>, obviously flicka, tbs directives, the cfdc, the wcb, falun gong,
+
+Nearest to 'panicked': 're blushing, <> </>, al-baradi 'ey, are that-, the cfdc, the wcb, al-qa 'idah, freaked out,
+
+Nearest to '11:00': 9.30 a.m., 10.30 a.m., 11.30 a.m., 9.05 a.m., 11.45 a.m., 2:00 p.m., 9.15 a.m., taking note,
+
+Nearest to 'mark': backup to disk, one fifth, a fifth, 65 years, three quarters, three quarters, one third, 7 a,
+
+Nearest to 'kale': the dark, the equator, please , justine, sweet peppers, beef and veal, sunflower seed, the transcript, okay , sadie,
+
+Nearest to 'mnf-i': <> </>, al-baradi 'ey, are that-, obviously flicka, tbs directives, the wcb, the cfdc, falun gong,
+
+Nearest to 'mnf-i': <> </>, al-baradi 'ey, are that-, obviously flicka, tbs directives, the wcb, the cfdc, falun gong,
+
+Nearest to 'carparks': al-baradi 'ey, are that-, al-qa 'idah, the wcb, the cfdc, obviously flicka, 're blushing, 're blushing,
+
+Nearest to 'bills': sub- item, ms. shin, human rights watch, physical fitness, the consumer, other than zero, 's bleeding, child care,
+
+Nearest to 'generics': business now, debt servicing, softwood lumber, respendable revenues, the ca, exempt from tax, default value, instalment payments,
+
+Nearest to 'medium-term': kac 's, sarkozy 's, unhcr 's, olaf 's, berlusconi 's, diand 's, fintrac 's, acoa 's,
+
+Nearest to 'b.c.': data sets, 65 years, one quarter, year end, read only, read only, end use, each year,
+
+Nearest to 'calculating': is reset, the injectors, quite frankly, movable property, the environment, the surroundings, quite rightly, my heart,
+
+Nearest to 'onsite': tbs directives, obviously flicka, al-baradi 'ey, <> </>, are that-, forced evictions, is restarted, is restarted,
+
+Nearest to '27b': al-baradi 'ey, are that-, the cfdc, the wcb, 're blushing, 're blushing, al-qa 'idah, is reloaded,
+
+Nearest to 'unemployed': poor health, district councils, poor management, direct access, wheelchair accessible, older persons, old age allowance, school children,
+
+
+
+=================================================================
+Layer (type)                 Output Shape              Param #   
+=================================================================
+lstm_1 (LSTM)                (None, 5, 384)            898560    
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 5, 384)            0         
+_________________________________________________________________
+lstm_2 (LSTM)                (None, 5, 256)            656384    
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 5, 256)            0         
+_________________________________________________________________
+lstm_3 (LSTM)                (None, 200)               365600    
+_________________________________________________________________
+dropout_3 (Dropout)          (None, 200)               0         
+=================================================================
+Total params: 1,920,544
+Trainable params: 1,920,544
+Non-trainable params: 0
+
+
+====================================================================================================
+Layer (type)                     Output Shape          Param #     Connected to                     
+====================================================================================================
+input_1 (InputLayer)             (None, 5, 200)        0                                            
+____________________________________________________________________________________________________
+input_2 (InputLayer)             (None, 5, 200)        0                                            
+____________________________________________________________________________________________________
+sequential_2 (Sequential)        (None, 200)           1920544     input_1[0][0]                    
+                                                                   input_2[0][0]                    
+____________________________________________________________________________________________________
+lambda_1 (Lambda)                (None, 1)             0           sequential_2[1][0]               
+                                                                   sequential_2[2][0]               
+====================================================================================================
+Total params: 1,920,544
+Trainable params: 1,920,544
+Non-trainable params: 0
+____________________________________________________________________________________________________
+None
+* Accuracy on training set: 94.43%
+* Accuracy on test set: 76.45%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#############################################################################################
+# F I N A L     R E S U L T S    =>   5    N E A R E S T     W O R D S
+#############################################################################################
+
+Nearest to '-mom': polychlorinated biphenyls, polychlorinated biphenyls -lrb- pcbs -rrb-, ayad allawi, phenolic compounds, mr cohn-bendit,
+
+Nearest to 'inroads': significant strides, make headway, headway in, major strides, significant advances,
+
+Nearest to 'recovers': will recover, is recovering, to recover, fully recovered, slower growth,
+
+Nearest to 'jordan': michael jordan, jordan and israel, jordan 's, jordan 's king abdullah ii, saudi arabia 's,
+
+Nearest to 'schuman': janusz lewandowski, anti-personnel landmines, mrs schreyer, • wd, karl marx,
+
+Nearest to 'zxs': du règlement, juvenile courts, juvenile delinquents, la protección, juvenile delinquency,
+
+Nearest to 'thinking': 'm thinking, thinking clearly, 're thinking about, 're thinking of, thinking about,
+
+Nearest to 'hogarth': mr. joinet, baroness ashton, cecilia malmström, madam rapporteur, mr fischler,
+
+Nearest to 'passage': passage of, the passage, safe passage, transit passage, and passage,
+
+Nearest to 'beijing': in beijing, chinese taipei, beijing 's, beijing platform, beijing university,
+
+Nearest to 'engineer': the engineer, mechanical engineering, electrical engineering, civil engineering, engineering works,
+
+Nearest to 'disingenuous': manifestly unfounded, kinda stupid, absolutely absurd, absolutely ridiculous, downright macabre,
+
+Nearest to 'solidarity': the solidarity, such solidarity, show solidarity, our solidarity, national solidarity,
+
+Nearest to 'booklet': the booklet, a booklet, the brochure, this brochure, a brochure,
+
+Nearest to 'anglophones': revenu québec, estonian citizenship, linguistic minorities, quebec regions, quebec residents,
+
+Nearest to 'subregional': the subregional level, south-south cooperation, inter-governmental organizations, north-south cooperation, unctad meetings,
+
+Nearest to 'crucial': therefore crucial, particularly crucial, the crucial factor, very crucial, a crucial factor,
+
+Nearest to 'redeployment': troop withdrawal, withdrawal plan, israeli withdrawal, the pullout, of disengagement,
+
+Nearest to 'suez': the suez canal, sea ports, takeover bids, transiting through, sea transport,
+
+Nearest to 'liu': liu xiaobo, mr liu, liu jianchao, mr. liu, wang wei,
+
+Nearest to 'enriched': highly enriched uranium, uranium enrichment, radioactive material, enrich themselves, the uranium enrichment,
+
+Nearest to 'ruptured': septic tanks, gas pipelines, brain damage, urinary bladder, storage tanks,
+
+Nearest to 'voters': the voters, eligible voters, registered voters, voters ', their voters,
+
+Nearest to 'waivers': visa waiver, grant discharge, the waiver, compensatory payments, retention monies,
+
+Nearest to '1977': november 1973, 1986 and 1987, january 1976, december 1983, june 1968,
+
+Nearest to 'mon': cpn -lrb- m -rrb-, pol pot, pct / ai / dtd /, / 03, * /,
+
+Nearest to 'multi-stakeholder': inter-agency collaboration, intergovernmental panel, co-ordinated approach, intergovernmental forum, intergovernmental conferences,
+
+Nearest to 'vljay': a complementary, an inalienable part, print version, the booklet, the originals,
+
+Nearest to 'skilled': skilled personnel, highly skilled, better skilled, technically skilled, sufficiently skilled,
+
+Nearest to '1981': november 1973, january 1976, december 1977, december 1983, february 1988,
+
+Nearest to 'disintegrated': the disintegration, earth orbit, orbital debris, was toppled, torn apart,
+
+Nearest to 'payment': cash payment, payment terms, receive payment, actual payment, benefit payment,
+
+Nearest to 'monographs': scholarly journals, published articles, scientific journals, commentaries thereto, relevant articles,
+
+Nearest to 'asa': norway 's, oslo , norway, norway 1, buckbeak , okay, koc 's,
+
+Nearest to 'clinic': the clinic, medical clinics, health clinics, hospital admissions, hospital treatment,
+
+Nearest to 'carelessness': negligence ,, negligence of, occupational accidents, of negligence, gross negligence,
+
+Nearest to 'constructively': actively engaged, substantively interrelated, remain actively, working cooperatively, actively involved,
+
+Nearest to 'sketch': a comedian, biographical notes, written description, brief description, a caricature,
+
+Nearest to 'newman': paul martin, dr. miller, mr. williams, mr. meyer, mr. wallace,
+
+Nearest to 'worldwide': , worldwide, a worldwide, globally ,, more global, global world,
+
+Nearest to 'stockpiles': its stockpiles, their stockpiles, the inventories, their inventories, ghg inventories,
+
+Nearest to 'unwell': were asleep, acutely ill, were detained, gravely ill, were dreaming,
+
+Nearest to 'yonhap': interfax news agency, interfax news agency reported, the interfax news agency, itar-tass news agency reported, semi-official anatolia news agency,
+
+Nearest to 'remorse': deep regret, expressing concern, our sincere condolences, confess guilt, our heartfelt condolences,
+
+Nearest to 'nights': the nights, the evenings, sleep last night, night work, the weekends,
+
+Nearest to 'li': li changchun, mr li, chairman li peng, premier li peng, li keqiang,
+
+Nearest to '-nobody': money-laundering offences, buenos aires, günter verheugen, des femmes, costa rica,
+
+Nearest to 'ref': the ref, sayin ', -lrb- z, < >, thinkin ',
+
+Nearest to 'semi-annually': mutatis mutandis, first-served basis, case-by-case basis, conditionally repayable, appended hereto,
+
+Nearest to 'during': during times, months during, during both, during 2002, during periods,
+
+Nearest to 'cursed': fucking stoned, kissed me, god damn it, god almighty, fucking soaked,
+
+Nearest to 'bring': bring it, bring back, bring up, will bring, bring them to justice,
+
+Nearest to 'paedophilia': child pornography, cannabis abuse, combating bribery, cocaine abuse, money-laundering offences,
+
+Nearest to 'mugabe': robert mugabe, president mugabe, the mugabe regime, mugabe 's, zimbabwean president robert mugabe,
+
+Nearest to 'athletes': canadian athletes, our athletes, the athlete, those women, all psychological,
+
+Nearest to 'pose': threat posed, danger posed, question posed, dangers posed, posed questions,
+
+Nearest to 'ecr': -rsb- ecr, the ecr group, deutz service, h3 & f3, dg echo,
+
+Nearest to 'tis': you doin, o f, oh crap, damn you, -lrb- o,
+
+Nearest to '18th': 17th ,, , 18th, 18th of, 16th ,, , 17th,
+
+Nearest to 'confronting': confronting it, dangers posed, threat posed, confront them, face challenges,
+
+Nearest to 'beverages': alcoholic drinks, soft drinks, drink alcohol, drink coffee, drink tea,
+
+Nearest to 'rahman': mr. rahman, abdul aziz al-hakim, sheikh ahmed yassin, ahmed maher, ah , gee,
+
+Nearest to 'rapprochement': a rapprochement, normalizing relations, the normalisation, peace consolidation, accession negotiations,
+
+Nearest to 'brittle': alarmingly fragile, most resistant, quite fragile, cobalt crusts, most fragile,
+
+Nearest to 'smell': smell you, smell it, smell bad, smell that, smell great,
+
+Nearest to 'humiliating': pretty humiliating, the humiliation, a disgrace, 's embarrassing, just embarrassing,
+
+Nearest to 'transmitted': being transmitted, transmitted by, sexually transmitted diseases, be transmitted, is transmitted,
+
+Nearest to 'amortization': accrued liabilities, accrued interest, taxes payable, intangible property, excessively injurious,
+
+Nearest to 'innovators': technological innovation, technological advancements, technological advancement, technological advances, entrepreneurial activity,
+
+Nearest to 'residue': residue patterns, the residue, these residues, maximum residue limits, contaminated sediment,
+
+Nearest to 'cafe': a cafe, coffee shop, the restaurant, coffee table, menu bar,
+
+
+
+
+
+
+
+
+
+#############################################################################################
+# F I N A L     R E S U L T S    =>   W O R D     A N A L O G I E S
+#############################################################################################
+* IF 'france' is to 'paris' 	THEN  'italy'  :: rome, italy, italian, venice
+* IF 'big' is to 'bigger' 		THEN  'small'  :: smaller, larger, small, bigger
+* IF 'sarkozy' is to 'france' 	THEN  'merkel' :: germany, france, europe, german
+* IF 'dark' is to 'darker'  	THEN  'soft'   :: soft, softer, harder, darker
+* IF 'king' is to 'queen' 	 	THEN  'man'    :: man, woman, her, person
+* IF 'is' is to 'was'  			THEN  'have'   :: had, were, have, been
+* IF 'apple' is to 'fruit'  	THEN  'coffee' :: fruit, coffee, fruits, drinks
+* IF 'brother' is to 'sister'   THEN  'uncle'  :: sister, aunt, uncle, daughter
+* IF 'chicago' is to 'usa'  	THEN  'athens' :: athens, greece, sweden, olympic
+* IF 'mouse' is to 'mice' 	 	THEN  'dollar' :: dollar, dollars, weaker, traders

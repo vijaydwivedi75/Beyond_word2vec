@@ -70,7 +70,7 @@ def create_base_network(timesteps, input_dim):
     # seq.add(Dropout(0.6))
     return seq
 
-sts_pairs = preprocess_data_lstm.getSemEval()
+# sts_pairs = preprocess_data_lstm.getSemEval()
 # print(sts_pairs.shape)
 x_data, y_data, visualise_pairs = preprocess_data_lstm.dataset()
 input_dim = 1000
